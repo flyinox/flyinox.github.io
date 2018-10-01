@@ -1,0 +1,399 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="contract" id="{HO~0YNdN|fp9;rUxfdN" deletable="false" movable="false" x="10" y="10">
+    <mutation num_fields="3">
+      <field name="invoke"></field>
+      <field name="delete"></field>
+      <field name="query"></field>
+    </mutation>
+    <field name="NAME">example02</field>
+    <statement name="INIT">
+      <block type="contract_init" id="SQ+(tfy37]~ZKzPHu@JR">
+        <mutation num_vars="4">
+          <field name="_scope(&quot;SQ+(tfy37]~ZKzPHu@JR&quot;)_A" id="Rq#Z6lSF#leuSs_mwueS"></field>
+          <field name="_scope(&quot;SQ+(tfy37]~ZKzPHu@JR&quot;)_B" id="C^^j|zwB`P4q%tT;Y7};"></field>
+          <field name="_scope(&quot;SQ+(tfy37]~ZKzPHu@JR&quot;)_Aval" id="oL7Q;pPm@k=9%47i[h;E"></field>
+          <field name="_scope(&quot;SQ+(tfy37]~ZKzPHu@JR&quot;)_Bval" id="qYCws{sTr^VxR@pJP(.O"></field>
+        </mutation>
+        <statement name="PARAM">
+          <block type="contract_parameter" id="TO.;9{a{a0Dr.b5s1)99">
+            <mutation var_id="Rq#Z6lSF#leuSs_mwueS"></mutation>
+            <field name="NAME">A</field>
+            <field name="TYPE">TYPE_STRING</field>
+            <next>
+              <block type="contract_parameter" id="VP_[M=w[)Ux2O}AGCF(o">
+                <mutation var_id="oL7Q;pPm@k=9%47i[h;E"></mutation>
+                <field name="NAME">Aval</field>
+                <field name="TYPE">TYPE_FLOAT</field>
+                <next>
+                  <block type="contract_parameter" id="K3o~%P2H;]wlPPTf6]Kg">
+                    <mutation var_id="C^^j|zwB`P4q%tT;Y7};"></mutation>
+                    <field name="NAME">B</field>
+                    <field name="TYPE">TYPE_STRING</field>
+                    <next>
+                      <block type="contract_parameter" id="fX/:jW*F.6{Ej:qPj!ZS">
+                        <mutation var_id="qYCws{sTr^VxR@pJP(.O"></mutation>
+                        <field name="NAME">Bval</field>
+                        <field name="TYPE">TYPE_FLOAT</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="CODE">
+          <block type="contract_state_set" id="_t7$;hTnB;rZ1Ke5l__)">
+            <value name="STATE_KEY">
+              <block type="contract_parameter_get" id="Cq-`Hy=._I9,yW3lp}WW">
+                <mutation scope_id="SQ+(tfy37]~ZKzPHu@JR"></mutation>
+                <field name="PARAM_NAME">Rq#Z6lSF#leuSs_mwueS</field>
+              </block>
+            </value>
+            <value name="STATE_VALUE">
+              <block type="contract_parameter_get" id="f]M:;+Tw;G0~G=ag5w*1">
+                <mutation scope_id="SQ+(tfy37]~ZKzPHu@JR"></mutation>
+                <field name="PARAM_NAME">oL7Q;pPm@k=9%47i[h;E</field>
+              </block>
+            </value>
+            <next>
+              <block type="contract_state_set" id="SE0x47*X#QMYa4|_R8`8">
+                <value name="STATE_KEY">
+                  <block type="contract_parameter_get" id="g^S/?`Awqe!4-OIZCNI.">
+                    <mutation scope_id="SQ+(tfy37]~ZKzPHu@JR"></mutation>
+                    <field name="PARAM_NAME">C^^j|zwB`P4q%tT;Y7};</field>
+                  </block>
+                </value>
+                <value name="STATE_VALUE">
+                  <block type="contract_parameter_get" id="i4qgRtrg7RH%i-3)dji2">
+                    <mutation scope_id="SQ+(tfy37]~ZKzPHu@JR"></mutation>
+                    <field name="PARAM_NAME">qYCws{sTr^VxR@pJP(.O</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="contract_return" id="}mrp~Na;[zsAwl_QS$.p">
+                    <value name="RETURN_VAL">
+                      <shadow type="text" id="?lUM#?=.hU*TSE!zD6Qs">
+                        <field name="TEXT"></field>
+                      </shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <statement name="field_input1">
+      <block type="contract_method" id="9mp$C$zdy/:b{8Bn=0Tj">
+        <mutation num_vars="5">
+          <field name="_scope(&quot;9mp$C$zdy/:b{8Bn=0Tj&quot;)_A" id="gJ1#-~g#wQe0N]2{5gwH"></field>
+          <field name="_scope(&quot;9mp$C$zdy/:b{8Bn=0Tj&quot;)_B" id="-OW:Wk94O8Q4Yb#Q[]2n"></field>
+          <field name="_scope(&quot;9mp$C$zdy/:b{8Bn=0Tj&quot;)_X" id="|-o:]]|fZ23zClg.O~So"></field>
+          <field name="_scope(&quot;9mp$C$zdy/:b{8Bn=0Tj&quot;)_Aval" id=";Snm^X`0m%kQpu%g]YrQ"></field>
+          <field name="_scope(&quot;9mp$C$zdy/:b{8Bn=0Tj&quot;)_Bval" id="iO]hla7niTVMCnMcQs7?"></field>
+        </mutation>
+        <statement name="PARAMS">
+          <block type="contract_parameter" id="3#Oa/[0y=TuI^o{{(;A(">
+            <mutation var_id="gJ1#-~g#wQe0N]2{5gwH"></mutation>
+            <field name="NAME">A</field>
+            <field name="TYPE">TYPE_STRING</field>
+            <next>
+              <block type="contract_parameter" id="_uPccF(oTU(p^X=?H2]o">
+                <mutation var_id="-OW:Wk94O8Q4Yb#Q[]2n"></mutation>
+                <field name="NAME">B</field>
+                <field name="TYPE">TYPE_STRING</field>
+                <next>
+                  <block type="contract_parameter" id="t_}!1moJZEz9;_}e,5qm">
+                    <mutation var_id="|-o:]]|fZ23zClg.O~So"></mutation>
+                    <field name="NAME">X</field>
+                    <field name="TYPE">TYPE_FLOAT</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="CODE">
+          <block type="controls_if" id="u.he|ce`S?cLCzMla]~C">
+            <value name="IF0">
+              <block type="logic_negate" id="dM.O9JFl:~}@Ie-_(1Mg">
+                <value name="BOOL">
+                  <block type="contract_state_exist" id="F$LlODn?Xjn-gFMyWzyg">
+                    <value name="STATE_KEY">
+                      <shadow type="text" id="DmM}Cpt5:=9fE0hyo$)5">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="contract_parameter_get" id="VaEe|xaA3@w!ovPU+SVY">
+                        <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                        <field name="PARAM_NAME">gJ1#-~g#wQe0N]2{5gwH</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="contract_return_err" id="3PEmYFC?/]H{a+x)lP3L">
+                <value name="ERR_VAL">
+                  <shadow type="text" id="8rr(x2,jIuM[9s1w1PFP">
+                    <field name="TEXT">Entity not found</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="xN]2)pV|(=9SEw``F7f$">
+                <value name="IF0">
+                  <block type="logic_negate" id="E$^g]stB{4E7C11kAWCg">
+                    <value name="BOOL">
+                      <block type="contract_state_exist" id="lIKIkM65)J|a*v:]0V_k">
+                        <value name="STATE_KEY">
+                          <shadow type="text" id="DmM}Cpt5:=9fE0hyo$)5">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="contract_parameter_get" id="T{TLZk9%6cS[Yx?LKevL">
+                            <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                            <field name="PARAM_NAME">-OW:Wk94O8Q4Yb#Q[]2n</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="contract_return_err" id="N`dWs7#[r4JdqT7MjHv0">
+                    <value name="ERR_VAL">
+                      <shadow type="text" id="uG!q.agt:,,c~/*MS@d[">
+                        <field name="TEXT">Entity not found</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="contract_state_get" id="yUt;EA)uJA]AwSr(%NSC">
+                    <mutation var_id=";Snm^X`0m%kQpu%g]YrQ"></mutation>
+                    <field name="VAR_NAME">Aval</field>
+                    <value name="STATE_KEY">
+                      <block type="contract_parameter_get" id="cExDjd2%4,])N|@Hu8n%">
+                        <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                        <field name="PARAM_NAME">gJ1#-~g#wQe0N]2{5gwH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="contract_state_get" id="#=7SsuA-95tXu^vKF}.u">
+                        <mutation var_id="iO]hla7niTVMCnMcQs7?"></mutation>
+                        <field name="VAR_NAME">Bval</field>
+                        <value name="STATE_KEY">
+                          <block type="contract_parameter_get" id="f.N~gy@[x^w4L2oHt71/">
+                            <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                            <field name="PARAM_NAME">-OW:Wk94O8Q4Yb#Q[]2n</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="contract_state_set" id="i-8~Ycnv@zRIK]#k9PYQ">
+                            <value name="STATE_KEY">
+                              <block type="contract_parameter_get" id="3EGQxI.Mmp`j+v=3g0|I">
+                                <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                                <field name="PARAM_NAME">gJ1#-~g#wQe0N]2{5gwH</field>
+                              </block>
+                            </value>
+                            <value name="STATE_VALUE">
+                              <block type="math_arithmetic" id="F2%|!jreggd`sk`v%nyW">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <shadow type="math_number" id=".aOs4HCJNwpRQ:LRx50?">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                  <block type="contract_parameter_get" id="^M$-cIJsNGhzr,}!mFLT">
+                                    <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                                    <field name="PARAM_NAME">;Snm^X`0m%kQpu%g]YrQ</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="math_number" id="^ZclSfa7mWl/|#Mk9?xd">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                  <block type="contract_parameter_get" id="J:r_Ty5Y/h/hL_?Q!ejR">
+                                    <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                                    <field name="PARAM_NAME">|-o:]]|fZ23zClg.O~So</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="contract_state_set" id="N5%Q98gWcI=*|r0{SwX|">
+                                <value name="STATE_KEY">
+                                  <block type="contract_parameter_get" id="[N@a``{7EEz/yG?/!B`X">
+                                    <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                                    <field name="PARAM_NAME">-OW:Wk94O8Q4Yb#Q[]2n</field>
+                                  </block>
+                                </value>
+                                <value name="STATE_VALUE">
+                                  <block type="math_arithmetic" id="WpdfRX}xHKPR|KDoJ:`e">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id=".aOs4HCJNwpRQ:LRx50?">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="contract_parameter_get" id="r@(JL[my{=8t(9JLaX3E">
+                                        <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                                        <field name="PARAM_NAME">iO]hla7niTVMCnMcQs7?</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="^ZclSfa7mWl/|#Mk9?xd">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="contract_parameter_get" id="Icg+)hvsay/I[}(|`J:E">
+                                        <mutation scope_id="9mp$C$zdy/:b{8Bn=0Tj"></mutation>
+                                        <field name="PARAM_NAME">|-o:]]|fZ23zClg.O~So</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="contract_return" id="jxit~mQCJ@s?Svc|DB}H">
+                                    <value name="RETURN_VAL">
+                                      <shadow type="text" id="Ax.wIy~Eg0.$LP7KxG:F">
+                                        <field name="TEXT"></field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <statement name="field_input2">
+      <block type="contract_method" id="92.{wa255Jv[`vR:qA=_">
+        <mutation num_vars="1">
+          <field name="_scope(&quot;92.{wa255Jv[`vR:qA=_&quot;)_A" id="Ri2VzQLmr()X1`dMGA[i"></field>
+        </mutation>
+        <statement name="PARAMS">
+          <block type="contract_parameter" id="75(ewruttH3lmH{6+^TX">
+            <mutation var_id="Ri2VzQLmr()X1`dMGA[i"></mutation>
+            <field name="NAME">A</field>
+            <field name="TYPE">TYPE_STRING</field>
+          </block>
+        </statement>
+        <statement name="CODE">
+          <block type="contract_state_del" id="=p2{1PZ-}K(|RVj-:Dot">
+            <value name="STATE_KEY">
+              <block type="contract_parameter_get" id="n|zQEC~SdN)pR-^oeH4[">
+                <mutation scope_id="92.{wa255Jv[`vR:qA=_"></mutation>
+                <field name="PARAM_NAME">Ri2VzQLmr()X1`dMGA[i</field>
+              </block>
+            </value>
+            <next>
+              <block type="contract_return" id="in5kHd}6d%I7M.`cM_{Y">
+                <value name="RETURN_VAL">
+                  <shadow type="text" id="=;zX,L;jR)Zc3~yAWGj*">
+                    <field name="TEXT"></field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <statement name="field_input3">
+      <block type="contract_method" id="#S`0t^cM|i)Dx46(HuZ.">
+        <mutation num_vars="2">
+          <field name="_scope(&quot;#S`0t^cM|i)Dx46(HuZ.&quot;)_A" id="ci^H!_i0qt|Y+t(%Nv-@"></field>
+          <field name="_scope(&quot;#S`0t^cM|i)Dx46(HuZ.&quot;)_Aval" id="}5z2y*?L^cS%[w^iV4V+"></field>
+        </mutation>
+        <statement name="PARAMS">
+          <block type="contract_parameter" id="$qw[7biYtL9N!M@)gqSc">
+            <mutation var_id="Ri2VzQLmr()X1`dMGA[i"></mutation>
+            <field name="NAME">A</field>
+            <field name="TYPE">TYPE_STRING</field>
+          </block>
+        </statement>
+        <statement name="CODE">
+          <block type="controls_if" id="C8Tj-#$T?)$jPTLVQbo=">
+            <value name="IF0">
+              <block type="logic_negate" id="Y)X%37Tk3e:Zq;YB|nWn">
+                <value name="BOOL">
+                  <block type="contract_state_exist" id="WA`C(_?nAm45k5`:=E}_">
+                    <value name="STATE_KEY">
+                      <shadow type="text" id="E9}=9V-U|`Fiz$i8Qy5$">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="contract_parameter_get" id="{8FMHGeh${/S(DN/TMN{">
+                        <mutation scope_id="#S`0t^cM|i)Dx46(HuZ."></mutation>
+                        <field name="PARAM_NAME">ci^H!_i0qt|Y+t(%Nv-@</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="contract_return_err" id="!DOkp#4xS.;}B--Iqn3;">
+                <value name="ERR_VAL">
+                  <shadow type="text" id="MX;Kxpgkk8/F;;$oC8%Z">
+                    <field name="TEXT">nil amount</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="contract_state_get" id="CDs*x0HZ^D)ky_f!L9Q1">
+                <mutation var_id="}5z2y*?L^cS%[w^iV4V+"></mutation>
+                <field name="VAR_NAME">Aval</field>
+                <value name="STATE_KEY">
+                  <block type="contract_parameter_get" id="#rS0LOZ/^u%5i.uhEx(|">
+                    <mutation scope_id="#S`0t^cM|i)Dx46(HuZ."></mutation>
+                    <field name="PARAM_NAME">ci^H!_i0qt|Y+t(%Nv-@</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="contract_return" id=")+#GD%p%*!P+pjOM*G%z">
+                    <value name="RETURN_VAL">
+                      <shadow type="text" id="1H!*VWi*bqsjkrtOv0+T">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="object_create" id="E=fcG)=HpinGGDFFw`lg">
+                        <mutation num_fields="2">
+                          <field name="property name"></field>
+                          <field name="property name"></field>
+                        </mutation>
+                        <field name="field1">Name</field>
+                        <field name="field2">Amount</field>
+                        <value name="field_input1">
+                          <block type="contract_parameter_get" id="b[j)Ji]0st=t*sBG-gc4">
+                            <mutation scope_id="#S`0t^cM|i)Dx46(HuZ."></mutation>
+                            <field name="PARAM_NAME">ci^H!_i0qt|Y+t(%Nv-@</field>
+                          </block>
+                        </value>
+                        <value name="field_input2">
+                          <block type="contract_parameter_get" id="CQQv`42V,Hb1`o+^hl$B">
+                            <mutation scope_id="#S`0t^cM|i)Dx46(HuZ."></mutation>
+                            <field name="PARAM_NAME">}5z2y*?L^cS%[w^iV4V+</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

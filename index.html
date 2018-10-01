@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google" value="notranslate">
+  <title>Blockly chaincode:</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <script src="./bundle.js"></script>
+  <!--<script src="code.js"></script>-->
+</head>
+<body>
+  <table width="100%" height="100%">
+      <tr>
+    <td>
+      <!--<div class="navbar navbar-light navbar-dark flex-column flex-md-row bd-navbar">blockly-chaincode</div>-->
+      <nav style="padding: 0;" class="navbar navbar-expand-sm bg-info navbar-dark">
+        <div style="margin-left: 20px; font-weight:bold;font-size: 22px;" class="navbar-brand" href="#">blockly-chaincode</div>
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <div style="position: relative;" class="nav-link p-2" target="_blank" rel="noopener" title="language" >
+              <img width="24px" height="24px" src="./media/menu/earth.png">
+              <select id="languageMenu"></select>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <div id="uploadXML" style="position: relative;" class="nav-link p-2" target="_blank" rel="noopener" title="upload block file">
+              <img src="./media/menu/upload.png" width="24px" height="24px">
+              <input type="file" id="uploadXMLFile" name="myFile" accept="application/xml" style="top:-40px;right: 0; position:absolute; filter:alpha(opacity=0); opacity:0; width:40px; height: 40px;">
+            </div>
+          </li>
+          <li class="nav-item">
+            <div id="downloadXML" class="nav-link p-2"  target="_blank" rel="noopener" title="download block file" >
+              <img src="./media/menu/download.png" width="24px" height="24px">
+            </div>
+          </li>
+          <li class="nav-item">
+            <div id="saveChaincode" class="nav-link p-2" target="_blank" rel="noopener" title="save JavaScript chaincode" >
+              <img src="./media/menu/contract.png" width="30px" height="30px">
+            </div>
+          </li>
+        </ul>
+        <ul style="margin-right: 20px;" class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+          <li class="nav-item">
+            <div id="undo" class="nav-link p-2"  target="_blank" rel="noopener" title="undo" >
+              <img src="./media/menu/undo.png" width="24px" height="24px">
+            </div>
+          </li>
+          <li class="nav-item">
+            <div id="redo" class="nav-link p-2"  target="_blank" rel="noopener"  title="redo">
+              <img src="./media/menu/redo.png" width="24px" height="24px">
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </td>
+      </tr>
+    <tr>
+      <td colspan=2>
+        <table width="100%">
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks_wrapper" class="tabon"><div class="blocklyBlockIcon"></div><span style="padding-left:3px;padding-right:3px;vertical-align:middle;" id="tab_blocks">...</span></td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_javascript" class="taboff">JavaScript</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_xml" class="taboff">XML</td>
+            <td class="tabmax">
+              <!--<button id="trashButton" class="notext" title="...">-->
+                <!--<img src='../blockly/media/1x1.gif' class="trash icon21">-->
+              <!--</button>-->
+              <!--<button id="linkButton" class="notext" title="...">-->
+                <!--<img src='../blockly/media/1x1.gif' class="link icon21">-->
+              <!--</button>-->
+              <!--<select id="languageMenu"></select>-->
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="99%" colspan=2 id="content_area">
+      </td>
+    </tr>
+  </table>
+  <div id="content_blocks" class="content"></div>
+  <pre id="content_javascript" class="content"></pre>
+  <textarea id="content_xml" class="content" wrap="off"></textarea>
+
+  <xml id="toolbox" style="display: none">
+    <category name="%{BKY_CATCONTRACT}" colour="%{BKY_CONTRACT_HUE}" icon="icon_loops">
+      <!--<block type="contract"> </block>-->
+      <block type="contract_init"> </block>
+      <block type="contract_method"> </block>
+      <block type="contract_localvar_define"> </block>
+      <block type="contract_var_set"> </block>
+      <block type="contract_parameter"> </block>
+      <block type="contract_parameter_get"> </block>
+      <block type="contract_state_set"> </block>
+      <block type="contract_state_get"> </block>
+      <block type="contract_state_del"> </block>
+      <block type="contract_state_exist">
+        <value name="STATE_KEY">
+          <shadow type="text">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="contract_return">
+        <value name="RETURN_VAL">
+          <shadow type="text">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="contract_return_err">
+        <value name="ERR_VAL">
+          <shadow type="text">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <sep></sep>
+    <category name="%{BKY_CATLOGIC}" colour="%{BKY_LOGIC_HUE}">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <sep></sep>
+    <category name="%{BKY_CATLOOPS}" colour="%{BKY_LOOPS_HUE}">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+        <value name="BY">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <sep></sep>
+    <category name="%{BKY_CATMATH}" colour="%{BKY_MATH_HUE}">
+      <block type="math_number">
+        <field name="NUM">123</field>
+      </block>
+      <block type="math_arithmetic">
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_single">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">9</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_trig">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">45</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_constant"></block>
+      <block type="math_number_property">
+        <value name="NUMBER_TO_CHECK">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_round">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">3.1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo">
+        <value name="DIVIDEND">
+          <shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+        </value>
+        <value name="DIVISOR">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_constrain">
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">50</field>
+          </shadow>
+        </value>
+        <value name="LOW">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="HIGH">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_random_int">
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+    </category>
+    <sep></sep>
+    <category name="%{BKY_CATTEXT}" colour="%{BKY_TEXTS_HUE}">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append">
+        <value name="TEXT">
+          <shadow type="text"></shadow>
+        </value>
+      </block>
+      <block type="text_length">
+        <value name="VALUE">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_isEmpty">
+        <value name="VALUE">
+          <shadow type="text">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{textVariable}</field>
+          </block>
+        </value>
+        <value name="FIND">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_charAt">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{textVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_getSubstring">
+        <value name="STRING">
+          <block type="variables_get">
+            <field name="VAR">{textVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_changeCase">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_trim">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_print">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_prompt_ext">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <sep></sep>
+    <category name="%{BKY_CATLISTS}" colour="%{BKY_LISTS_HUE}">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getIndex">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">{listVariable}</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_split">
+        <value name="DELIM">
+          <shadow type="text">
+            <field name="TEXT">,</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_sort"></block>
+    </category>
+    <sep></sep>
+    <!--<category name="%{BKY_CATCOLOUR}" colour="%{BKY_COLOUR_HUE}">-->
+      <!--<block type="colour_picker"></block>-->
+      <!--<block type="colour_random"></block>-->
+      <!--<block type="colour_rgb">-->
+        <!--<value name="RED">-->
+          <!--<shadow type="math_number">-->
+            <!--<field name="NUM">100</field>-->
+          <!--</shadow>-->
+        <!--</value>-->
+        <!--<value name="GREEN">-->
+          <!--<shadow type="math_number">-->
+            <!--<field name="NUM">50</field>-->
+          <!--</shadow>-->
+        <!--</value>-->
+        <!--<value name="BLUE">-->
+          <!--<shadow type="math_number">-->
+            <!--<field name="NUM">0</field>-->
+          <!--</shadow>-->
+        <!--</value>-->
+      <!--</block>-->
+      <!--<block type="colour_blend">-->
+        <!--<value name="COLOUR1">-->
+          <!--<shadow type="colour_picker">-->
+            <!--<field name="COLOUR">#ff0000</field>-->
+          <!--</shadow>-->
+        <!--</value>-->
+        <!--<value name="COLOUR2">-->
+          <!--<shadow type="colour_picker">-->
+            <!--<field name="COLOUR">#3333ff</field>-->
+          <!--</shadow>-->
+        <!--</value>-->
+        <!--<value name="RATIO">-->
+          <!--<shadow type="math_number">-->
+            <!--<field name="NUM">0.5</field>-->
+          <!--</shadow>-->
+        <!--</value>-->
+      <!--</block>-->
+    <!--</category>-->
+    <!--<sep></sep>-->
+    <category name="%{BKY_CATOBJECT}" colour="%{BKY_OBJECT_HUE}">
+      <block type="object_from_json">
+      </block>
+      <block type="object_to_json">
+      </block>
+      <block type="object_get">
+      </block>
+      <block type="object_set">
+      </block>
+      <block type="object_create">
+      </block>
+      <block type="object_field">
+      </block>
+    </category>
+
+    <sep></sep>
+    <!--<category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>-->
+    <!--<category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>-->
+  </xml>
+  <xml id="startBlocks" style="display: none">
+    <block type="contract" inline="false" x="20" y="20">
+    </block>
+  </xml>
+  <script>
+  </script>
+</body>
+</html>
